@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="consents ≔ ∅" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="dataFields ≔ ∅" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="dataSubjectConsents ≔ ∅" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="addresses ≔ {this}" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="balanceOf ≔ {this ↦ initialBalance}" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="callbackRequesterStates ≔ ∅" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="dataAccessRequests ≔ ∅" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="callbackResponderStates ≔ ∅" org.eventb.core.label="act8"/>
+        <org.eventb.core.action name="/" org.eventb.core.assignment="dataAccessResponses ≔ ∅" org.eventb.core.label="act9"/>
+        <org.eventb.core.action name="0" org.eventb.core.assignment="callbackDataTransferStates ≔ ∅" org.eventb.core.label="act10"/>
+        <org.eventb.core.action name="1" org.eventb.core.assignment="encryptedData ≔ ∅" org.eventb.core.label="act11"/>
+        <org.eventb.core.action name="2" org.eventb.core.assignment="dataTransferStates ≔ ∅" org.eventb.core.label="act12"/>
+    </org.eventb.core.event>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="DSCX"/>
+    <org.eventb.core.variable name=")" org.eventb.core.identifier="consents"/>
+    <org.eventb.core.variable name="*" org.eventb.core.identifier="dataFields"/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="dataSubjectConsents"/>
+    <org.eventb.core.variable name="," org.eventb.core.identifier="addresses"/>
+    <org.eventb.core.variable name="-" org.eventb.core.identifier="balanceOf"/>
+    <org.eventb.core.variable name="." org.eventb.core.identifier="callbackRequesterStates"/>
+    <org.eventb.core.variable name="/" org.eventb.core.identifier="dataAccessRequests"/>
+    <org.eventb.core.variable name="0" org.eventb.core.identifier="callbackResponderStates"/>
+    <org.eventb.core.variable name="1" org.eventb.core.identifier="dataAccessResponses"/>
+    <org.eventb.core.variable name="2" org.eventb.core.identifier="callbackDataTransferStates"/>
+    <org.eventb.core.variable name="3" org.eventb.core.identifier="encryptedData"/>
+    <org.eventb.core.invariant name="4" org.eventb.core.label="inv1" org.eventb.core.predicate="consents ∈ ℙ(CONSENTS)"/>
+    <org.eventb.core.invariant name="5" org.eventb.core.label="inv2" org.eventb.core.predicate="dataFields ∈ CONSENTS ⤔ ℙ1(FIELDS)"/>
+    <org.eventb.core.invariant name="6" org.eventb.core.label="inv3" org.eventb.core.predicate="dataSubjectConsents ∈ PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⤔ BOOL"/>
+    <org.eventb.core.invariant name="7" org.eventb.core.label="inv4" org.eventb.core.predicate="addresses ⊆ ADDRESSES"/>
+    <org.eventb.core.invariant name="8" org.eventb.core.label="inv5" org.eventb.core.predicate="balanceOf ∈ addresses → ℕ"/>
+    <org.eventb.core.invariant name="9" org.eventb.core.label="inv6" org.eventb.core.predicate="callbackRequesterStates ∈ ℙ(PARTICIPANTS × DATA_SUBJECTS × CONSENTS)"/>
+    <org.eventb.core.invariant name=":" org.eventb.core.label="inv7" org.eventb.core.predicate="dataAccessRequests ∈ REQUESTS ⤔ PARTICIPANTS × DATA_SUBJECTS × CONSENTS"/>
+    <org.eventb.core.invariant name=";" org.eventb.core.label="inv8" org.eventb.core.predicate="callbackResponderStates ∈ ℙ(REQUESTS)"/>
+    <org.eventb.core.invariant name="=" org.eventb.core.label="inv9" org.eventb.core.predicate="dataAccessResponses ∈ RESPONSES ⤔ REQUESTS"/>
+    <org.eventb.core.invariant name="&gt;" org.eventb.core.label="inv10" org.eventb.core.predicate="callbackDataTransferStates ∈ ℙ(RESPONSES)"/>
+    <org.eventb.core.invariant name="?" org.eventb.core.label="inv11" org.eventb.core.predicate="encryptedData ∈ RESPONSES ⤔ ℙ(DATA_SUBJECTS × FIELDS)"/>
+    <org.eventb.core.event name="@" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="AddConsent">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="consent"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="dataField"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="consent ∈ CONSENTS ∧ consent ∉ consents"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="dataField ∈ ℙ1(FIELDS)"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="dataFields  {consent ↦ dataField} ∈ CONSENTS ⤔ ℙ1(FIELDS)"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="consents ≔ consents ∪ {consent}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="dataFields(consent) ≔ dataField" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="AddDataSubjectConsent">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="service"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="dataSubject"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="consent"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="dataSubjectConsents(service ↦ dataSubject ↦ consent) ≔ TRUE" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="service ∈ PARTICIPANTS"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="dataSubject ∈ DATA_SUBJECTS"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="consent ∈ consents ∧ consent ∈ dom(dataFields)"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd4" org.eventb.core.predicate="service ↦ dataSubject ↦ consent ∉ dom(dataSubjectConsents)"/>
+        <org.eventb.core.guard name="/" org.eventb.core.label="grd5" org.eventb.core.predicate="dataSubjectConsents  {service ↦ dataSubject ↦ consent ↦ TRUE} ∈ &#10;(PARTICIPANTS × DATA_SUBJECTS × CONSENTS) ⤔ BOOL"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="B" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="CallbackRequester">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="oraclizeFee"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="dataSubjectConsent"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="this ∈ dom(balanceOf) ∧&#10;oraclizeFee ∈ ℕ ∧&#10;oraclizeFee ≤ balanceOf(this)"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="dataSubjectConsent ∈ dom(dataSubjectConsents) ∧&#10;dataSubjectConsent ∉ callbackRequesterStates ∧&#10;dataSubjectConsents(dataSubjectConsent) = TRUE"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="balanceOf  {this ↦ balanceOf(this) − oraclizeFee} ∈ addresses → ℕ"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="callbackRequesterStates ≔ callbackRequesterStates ∪ {dataSubjectConsent}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="balanceOf ≔ balanceOf  {this ↦ balanceOf(this) − oraclizeFee}" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="C" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SubmitRequest">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="consentExpired"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="dataSubjectConsent"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="consentExpired ∈ BOOL ∧ consentExpired = FALSE"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="dataSubjectConsent ∈ dom(dataSubjectConsents) ∧ &#10;dataSubjectConsents(dataSubjectConsent) = TRUE"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="dataSubjectConsent ∈ callbackRequesterStates"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="request ∈ REQUESTS ∧ request ∉ dom(dataAccessRequests)"/>
+        <org.eventb.core.parameter name="-" org.eventb.core.identifier="request"/>
+        <org.eventb.core.action name="/" org.eventb.core.assignment="dataAccessRequests(request) ≔ dataSubjectConsent" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="0" org.eventb.core.label="grd5" org.eventb.core.predicate="dataAccessRequests  {request ↦ dataSubjectConsent} ∈ &#10;REQUESTS ⤔ PARTICIPANTS × DATA_SUBJECTS × CONSENTS"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="D" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="CallbackResponder">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="oraclizeFee"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="request"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="this ∈ dom(balanceOf) ∧&#10;oraclizeFee ∈ ℕ ∧&#10;oraclizeFee ≤ balanceOf(this)"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="request ∈ dom(dataAccessRequests) ∧&#10;request ∉ callbackResponderStates ∧&#10;dataAccessRequests(request) ∈ dom(dataSubjectConsents) ∧&#10;dataSubjectConsents(dataAccessRequests(request)) = TRUE"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="callbackResponderStates ≔ callbackResponderStates ∪ {request}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="balanceOf ≔ balanceOf  {this ↦ balanceOf(this) − oraclizeFee}" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd3" org.eventb.core.predicate="balanceOf  {this ↦ balanceOf(this) − oraclizeFee} ∈ addresses → ℕ"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="E" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SubmitResponse">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="consentExpired"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="dataSubjectConsent"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="request"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="consentExpired ∈ BOOL ∧ consentExpired = FALSE"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="dataSubjectConsent ∈ dom(dataSubjectConsents) ∧ &#10;dataSubjectConsents(dataSubjectConsent) = TRUE"/>
+        <org.eventb.core.parameter name="," org.eventb.core.identifier="response"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="request ∈ callbackResponderStates"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd4" org.eventb.core.predicate="response ∈ RESPONSES ∧ response ∉ dom(dataAccessResponses)"/>
+        <org.eventb.core.guard name="/" org.eventb.core.label="grd5" org.eventb.core.predicate="dataAccessResponses  {response ↦ request} ∈ RESPONSES ⤔ REQUESTS"/>
+        <org.eventb.core.action name="0" org.eventb.core.assignment="dataAccessResponses(response) ≔ request" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="F" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="CallbackDataTransfer">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="oraclizeFee"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="response"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="this ∈ dom(balanceOf) ∧&#10;oraclizeFee ∈ ℕ ∧&#10;oraclizeFee ≤ balanceOf(this)"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="response ∈ dom(dataAccessResponses) ∧&#10;response ∉ callbackDataTransferStates"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="dataAccessResponses(response) ∈ dom(dataAccessRequests) ∧&#10;dataAccessRequests(dataAccessResponses(response)) ∈ dom(dataSubjectConsents) ∧&#10;dataSubjectConsents(dataAccessRequests(dataAccessResponses(response))) = TRUE"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="callbackDataTransferStates ≔ callbackDataTransferStates ∪ {response}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="balanceOf ≔ balanceOf  {this ↦ balanceOf(this) − oraclizeFee}" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd4" org.eventb.core.predicate="balanceOf  {this ↦ balanceOf(this) − oraclizeFee} ∈ addresses → ℕ"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="G" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="TransferData">
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="response ∈ callbackDataTransferStates ∧&#10;response ∈ dom(dataAccessResponses) ∧&#10;response ∉ dom(dataTransferStates) "/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="encryptedData(response) ≔ {dataSubject} × dataFields(consent)" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="dataTransferStates(response) ≔ TRUE" org.eventb.core.label="act2"/>
+        <org.eventb.core.parameter name="-" org.eventb.core.identifier="service"/>
+        <org.eventb.core.parameter name="." org.eventb.core.identifier="dataSubject"/>
+        <org.eventb.core.parameter name="/" org.eventb.core.identifier="consent"/>
+        <org.eventb.core.parameter name="0" org.eventb.core.identifier="response"/>
+        <org.eventb.core.guard name="1" org.eventb.core.label="grd4" org.eventb.core.predicate="consent ∈ dom(dataFields)"/>
+        <org.eventb.core.guard name="2" org.eventb.core.label="grd5" org.eventb.core.predicate="∃x·x ∈ dataAccessRequests[{dataAccessResponses(response)}] ∧ &#10;x = service ↦ dataSubject ↦ consent ∧&#10;service ↦ dataSubject ↦ consent ∈ dom(dataSubjectConsents) ∧&#10;dataSubjectConsents(x) = TRUE"/>
+        <org.eventb.core.guard name="3" org.eventb.core.label="grd6" org.eventb.core.predicate="encryptedData  {response ↦ {dataSubject} × dataFields(consent)} ∈&#10;RESPONSES ⤔ ℙ(DATA_SUBJECTS × FIELDS)"/>
+        <org.eventb.core.guard name="4" org.eventb.core.label="grd7" org.eventb.core.predicate="dataTransferStates  {response ↦ TRUE} ∈ RESPONSES ⤔ BOOL"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="H" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="RevokeConsent">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="dataSubjectConsent"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="dataSubjectConsent ∈ dom(dataSubjectConsents) ∧&#10;dataSubjectConsents(dataSubjectConsent) = TRUE"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="dataSubjectConsents(dataSubjectConsent) ≔ FALSE" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="dataSubjectConsents  {dataSubjectConsent ↦ FALSE} ∈ &#10;(PARTICIPANTS × DATA_SUBJECTS × CONSENTS) ⤔ BOOL"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="I" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="RenewConsent">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="dataSubjectConsent"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="dataSubjectConsent ∈ dom(dataSubjectConsents)"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="dataSubjectConsents(dataSubjectConsent) = FALSE"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="dataSubjectConsents  {dataSubjectConsent ↦ TRUE} ∈ &#10;(PARTICIPANTS × DATA_SUBJECTS × CONSENTS) ⤔ BOOL"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="dataSubjectConsents(dataSubjectConsent) ≔ TRUE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="J" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="InsufficientBalance">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="oraclizeFee"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="dataSubjectConsent"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="request"/>
+        <org.eventb.core.parameter name="*" org.eventb.core.identifier="response"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="this ∈ dom(balanceOf) ∧&#10;oraclizeFee ∈ ℕ ∧&#10;oraclizeFee &gt; balanceOf(this)"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="dataSubjectConsent ∈ dom(dataSubjectConsents) ∧ &#10;dataSubjectConsents(dataSubjectConsent) = TRUE"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="(dataSubjectConsent ∉ callbackRequesterStates) ∨&#10;(request ↦ dataSubjectConsent ∈ dataAccessRequests ∧&#10;request ∉ callbackResponderStates) ∨&#10;(response ↦ request ∈ dataAccessResponses ∧&#10;response ∉ callbackDataTransferStates)"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="K" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ExpireConsent">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="consentExpired"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="consentExpired ∈ BOOL ∧ consentExpired = TRUE"/>
+        <org.eventb.core.parameter name="*" org.eventb.core.identifier="dataSubjectConsent"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="dataSubjectConsent ∈ dom(dataSubjectConsents) ∧&#10;dataSubjectConsents(dataSubjectConsent) = TRUE"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="dataSubjectConsents(dataSubjectConsent) ≔ FALSE" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd3" org.eventb.core.predicate="dataSubjectConsents  {dataSubjectConsent ↦ FALSE} ∈&#10;PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⤔ BOOL"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="L" org.eventb.core.label="inv12" org.eventb.core.predicate="dataTransferStates ∈ RESPONSES ⤔ BOOL"/>
+    <org.eventb.core.variable name="M" org.eventb.core.identifier="dataTransferStates"/>
+    <org.eventb.core.event name="N" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="UnauthorizedAccess">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="dataSubjectConsent"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="dataSubjectConsent ∈ dom(dataSubjectConsents) ∧&#10;dataSubjectConsents(dataSubjectConsent) = FALSE"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

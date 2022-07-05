@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+    <org.eventb.core.psStatus name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv11/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv12/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="AddConsent/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="AddDataSubjectConsent/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackRequester/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackRequester/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackRequester/grd3/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackRequester/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackRequester/act2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="SubmitRequest/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="SubmitRequest/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackResponder/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackResponder/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackResponder/grd3/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackResponder/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackResponder/act2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="SubmitResponse/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="SubmitResponse/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackDataTransfer/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackDataTransfer/grd3/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackDataTransfer/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackDataTransfer/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="CallbackDataTransfer/act2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="TransferData/grd5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="TransferData/grd6/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="TransferData/inv11/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="TransferData/inv12/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="TransferData/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="RevokeConsent/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="RevokeConsent/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="RenewConsent/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="RenewConsent/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="InsufficientBalance/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="InsufficientBalance/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ExpireConsent/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ExpireConsent/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="UnauthorizedAccess/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>
