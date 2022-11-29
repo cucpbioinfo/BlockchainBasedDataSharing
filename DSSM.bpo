@@ -142,24 +142,24 @@
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poSequent name="AddDataSubjectConsent/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#EVTALLHYPcallbackDataTransferStatev"/>
-        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="dataSubjectConsents{service ↦ dataSubject ↦ consent ↦ TRUE}∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⤔ BOOL" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.invariant#6"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="dataSubjectConsents{responder ↦ dataSubject ↦ consent ↦ TRUE}∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⤔ BOOL" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.invariant#6"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#A"/>
         <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.invariant#6"/>
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poSequent#AddDataSubjectConsent\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
     </org.eventb.core.poSequent>
     <org.eventb.core.poPredicateSet name="EVTIDENTcallbackDataTransferStatev" org.eventb.core.parentSet="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
-        <org.eventb.core.poIdentifier name="service" org.eventb.core.type="PARTICIPANTS"/>
         <org.eventb.core.poIdentifier name="consent" org.eventb.core.type="CONSENTS"/>
         <org.eventb.core.poIdentifier name="dataSubjectConsents'" org.eventb.core.type="ℙ(PARTICIPANTS×DATA_SUBJECTS×CONSENTS×BOOL)"/>
         <org.eventb.core.poIdentifier name="dataSubject" org.eventb.core.type="DATA_SUBJECTS"/>
+        <org.eventb.core.poIdentifier name="responder" org.eventb.core.type="PARTICIPANTS"/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poPredicateSet name="EVTALLHYPcallbackDataTransferStatev" org.eventb.core.parentSet="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#EVTIDENTcallbackDataTransferStatev" org.eventb.core.poStamp="0">
-        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="service∈PARTICIPANTS" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#A|org.eventb.core.guard#+"/>
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="responder∈PARTICIPANTS" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#A|org.eventb.core.guard#+"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="dataSubject∈DATA_SUBJECTS" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#A|org.eventb.core.guard#,"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="consent∈consents∧consent∈dom(dataFields)" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#A|org.eventb.core.guard#-"/>
-        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="service ↦ dataSubject ↦ consent∉dom(dataSubjectConsents)" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#A|org.eventb.core.guard#."/>
-        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="dataSubjectConsents{service ↦ dataSubject ↦ consent ↦ TRUE}∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⤔ BOOL" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#A|org.eventb.core.guard#\/"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="responder ↦ dataSubject ↦ consent∉dom(dataSubjectConsents)" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#A|org.eventb.core.guard#."/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="dataSubjectConsents{responder ↦ dataSubject ↦ consent ↦ TRUE}∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⤔ BOOL" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#A|org.eventb.core.guard#\/"/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poSequent name="CallbackRequester/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#EVTIDENTcallbackDataTransferStatew"/>
@@ -364,7 +364,7 @@
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poSequent name="TransferData/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#EVTHYPcallbackDataTransferState\|("/>
-        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·response∈dom(dataAccessResponses)∧dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=service ↦ dataSubject ↦ consent∧service ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#G|org.eventb.core.guard#2"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·response∈dom(dataAccessResponses)∧dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=responder ↦ dataSubject ↦ consent∧responder ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#G|org.eventb.core.guard#2"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#G|org.eventb.core.guard#2"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#EVTHYPcallbackDataTransferState\|("/>
     </org.eventb.core.poSequent>
@@ -397,11 +397,11 @@
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#EVTALLHYPcallbackDataTransferState\|"/>
     </org.eventb.core.poSequent>
     <org.eventb.core.poPredicateSet name="EVTIDENTcallbackDataTransferState|" org.eventb.core.parentSet="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
-        <org.eventb.core.poIdentifier name="service" org.eventb.core.type="PARTICIPANTS"/>
         <org.eventb.core.poIdentifier name="consent" org.eventb.core.type="CONSENTS"/>
         <org.eventb.core.poIdentifier name="encryptedData'" org.eventb.core.type="ℙ(RESPONSES×ℙ(DATA_SUBJECTS×FIELDS))"/>
         <org.eventb.core.poIdentifier name="dataSubject" org.eventb.core.type="DATA_SUBJECTS"/>
         <org.eventb.core.poIdentifier name="response" org.eventb.core.type="RESPONSES"/>
+        <org.eventb.core.poIdentifier name="responder" org.eventb.core.type="PARTICIPANTS"/>
         <org.eventb.core.poIdentifier name="dataTransferStates'" org.eventb.core.type="ℙ(RESPONSES×BOOL)"/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poPredicateSet name="EVTHYPcallbackDataTransferState|(" org.eventb.core.parentSet="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#EVTIDENTcallbackDataTransferState\|" org.eventb.core.poStamp="0">
@@ -409,7 +409,7 @@
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="consent∈dom(dataFields)" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#G|org.eventb.core.guard#1"/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poPredicateSet name="EVTHYPcallbackDataTransferState|)" org.eventb.core.parentSet="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#EVTHYPcallbackDataTransferState\|(" org.eventb.core.poStamp="0">
-        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="∃x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=service ↦ dataSubject ↦ consent∧service ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)∧dataSubjectConsents(x)=TRUE" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#G|org.eventb.core.guard#2"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="∃x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=responder ↦ dataSubject ↦ consent∧responder ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)∧dataSubjectConsents(x)=TRUE" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#G|org.eventb.core.guard#2"/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poPredicateSet name="EVTALLHYPcallbackDataTransferState|" org.eventb.core.parentSet="/BlockchainBasedDataSharing/DSSM.bpo|org.eventb.core.poFile#DSSM|org.eventb.core.poPredicateSet#EVTHYPcallbackDataTransferState\|)" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="encryptedData{response ↦ {dataSubject} × dataFields(consent)}∈RESPONSES ⤔ ℙ(DATA_SUBJECTS × FIELDS)" org.eventb.core.source="/BlockchainBasedDataSharing/DSSM.bum|org.eventb.core.machineFile#DSSM|org.eventb.core.event#G|org.eventb.core.guard#3"/>

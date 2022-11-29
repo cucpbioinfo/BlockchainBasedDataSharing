@@ -59,8 +59,8 @@
         <org.eventb.core.prIdent name="consent" org.eventb.core.type="CONSENTS"/>
         <org.eventb.core.prIdent name="dataSubject" org.eventb.core.type="DATA_SUBJECTS"/>
         <org.eventb.core.prIdent name="dataSubjectConsents" org.eventb.core.type="ℙ(PARTICIPANTS×DATA_SUBJECTS×CONSENTS×BOOL)"/>
-        <org.eventb.core.prIdent name="service" org.eventb.core.type="PARTICIPANTS"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="dataSubjectConsents{service ↦ dataSubject ↦ consent ↦ TRUE}∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⤔ BOOL"/>
+        <org.eventb.core.prIdent name="responder" org.eventb.core.type="PARTICIPANTS"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="dataSubjectConsents{responder ↦ dataSubject ↦ consent ↦ TRUE}∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⤔ BOOL"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="CallbackRequester/grd1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="ADDRESSES">
@@ -3152,7 +3152,7 @@
                                                                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p39" org.eventb.core.prHyps="p36,p37,p38">
                                                                                                                 <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p39" org.eventb.core.prHyps="">
                                                                                                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p40">
-                                                                                                                        <org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with x=service ↦ dataSubject ↦ consent" org.eventb.core.prGoal="p40" org.eventb.core.prHyps="p37">
+                                                                                                                        <org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with x=responder ↦ dataSubject ↦ consent" org.eventb.core.prGoal="p40" org.eventb.core.prHyps="p37">
                                                                                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p38">
                                                                                                                                 <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p36" org.eventb.core.prInfHyps="p41"/>
                                                                                                                                 <org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p36"/>
@@ -3203,30 +3203,31 @@
         <org.eventb.core.prIdent name="dataSubject" org.eventb.core.type="DATA_SUBJECTS"/>
         <org.eventb.core.prIdent name="dataSubjectConsents" org.eventb.core.type="ℙ(PARTICIPANTS×DATA_SUBJECTS×CONSENTS×BOOL)"/>
         <org.eventb.core.prIdent name="dataTransferStates" org.eventb.core.type="ℙ(RESPONSES×BOOL)"/>
+        <org.eventb.core.prIdent name="responder" org.eventb.core.type="PARTICIPANTS"/>
         <org.eventb.core.prIdent name="response" org.eventb.core.type="RESPONSES"/>
-        <org.eventb.core.prIdent name="service" org.eventb.core.type="PARTICIPANTS"/>
         <org.eventb.core.prPred name="p30" org.eventb.core.predicate="callbackRequesterStates∈ℙ(PARTICIPANTS × DATA_SUBJECTS × CONSENTS)">
             <org.eventb.core.prIdent name="callbackRequesterStates" org.eventb.core.type="ℙ(PARTICIPANTS×DATA_SUBJECTS×CONSENTS)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p17" org.eventb.core.predicate="partition(REQUESTS,{Request1})">
             <org.eventb.core.prIdent name="Request1" org.eventb.core.type="REQUESTS"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=responder ↦ dataSubject ↦ consent∧responder ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL"/>
         <org.eventb.core.prPred name="p10" org.eventb.core.predicate="partition(FIELDS,{Name},{BirthDate},{BirthDefects})">
             <org.eventb.core.prIdent name="BirthDate" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="BirthDefects" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="⊤∧dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=service ↦ dataSubject ↦ consent∧service ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)"/>
         <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬ConsentA=ConsentB">
             <org.eventb.core.prIdent name="ConsentA" org.eventb.core.type="CONSENTS"/>
             <org.eventb.core.prIdent name="ConsentB" org.eventb.core.type="CONSENTS"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=responder ↦ dataSubject ↦ consent∧responder ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="PARTICIPANTS={ServiceA,ServiceB}">
             <org.eventb.core.prIdent name="ServiceA" org.eventb.core.type="PARTICIPANTS"/>
             <org.eventb.core.prIdent name="ServiceB" org.eventb.core.type="PARTICIPANTS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="service ↦ dataSubject ↦ consent∈dataAccessRequests[{dataAccessResponses(response)}]"/>
+        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="responder ↦ dataSubject ↦ consent∈dataAccessRequests[{dataAccessResponses(response)}]"/>
         <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬Name=BirthDefects">
             <org.eventb.core.prIdent name="BirthDefects" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
@@ -3244,7 +3245,6 @@
             <org.eventb.core.prIdent name="ServiceA" org.eventb.core.type="PARTICIPANTS"/>
             <org.eventb.core.prIdent name="ServiceB" org.eventb.core.type="PARTICIPANTS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="service ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(PARTICIPANTS,{ServiceA},{ServiceB})">
             <org.eventb.core.prIdent name="ServiceA" org.eventb.core.type="PARTICIPANTS"/>
             <org.eventb.core.prIdent name="ServiceB" org.eventb.core.type="PARTICIPANTS"/>
@@ -3259,7 +3259,9 @@
         <org.eventb.core.prPred name="p31" org.eventb.core.predicate="callbackResponderStates∈ℙ(REQUESTS)">
             <org.eventb.core.prIdent name="callbackResponderStates" org.eventb.core.type="ℙ(REQUESTS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=service ↦ dataSubject ↦ consent∧service ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL"/>
+        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=responder ↦ dataSubject ↦ consent∧responder ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL">
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="PARTICIPANTS×DATA_SUBJECTS×CONSENTS"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p40" org.eventb.core.predicate="x∈dom(dataSubjectConsents)">
             <org.eventb.core.prIdent name="x" org.eventb.core.type="PARTICIPANTS×DATA_SUBJECTS×CONSENTS"/>
         </org.eventb.core.prPred>
@@ -3270,9 +3272,6 @@
         <org.eventb.core.prPred name="p20" org.eventb.core.predicate="RESPONSES={Response1}">
             <org.eventb.core.prIdent name="Response1" org.eventb.core.type="RESPONSES"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="x=service ↦ dataSubject ↦ consent">
-            <org.eventb.core.prIdent name="x" org.eventb.core.type="PARTICIPANTS×DATA_SUBJECTS×CONSENTS"/>
-        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p29" org.eventb.core.predicate="addresses⊆ADDRESSES">
             <org.eventb.core.prIdent name="ADDRESSES" org.eventb.core.type="ℙ(ADDRESSES)"/>
             <org.eventb.core.prIdent name="addresses" org.eventb.core.type="ℙ(ADDRESSES)"/>
@@ -3280,24 +3279,23 @@
         <org.eventb.core.prPred name="p18" org.eventb.core.predicate="REQUESTS={Request1}">
             <org.eventb.core.prIdent name="Request1" org.eventb.core.type="REQUESTS"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="x=responder ↦ dataSubject ↦ consent">
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="PARTICIPANTS×DATA_SUBJECTS×CONSENTS"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬BirthDate=BirthDefects">
             <org.eventb.core.prIdent name="BirthDate" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="BirthDefects" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=service ↦ dataSubject ↦ consent∧service ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL">
-            <org.eventb.core.prIdent name="x" org.eventb.core.type="PARTICIPANTS×DATA_SUBJECTS×CONSENTS"/>
-        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="response∈dom(dataAccessResponses)∧dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=responder ↦ dataSubject ↦ consent∧responder ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬Name=BirthDate">
             <org.eventb.core.prIdent name="BirthDate" org.eventb.core.type="FIELDS"/>
             <org.eventb.core.prIdent name="FIELDS" org.eventb.core.type="ℙ(FIELDS)"/>
             <org.eventb.core.prIdent name="Name" org.eventb.core.type="FIELDS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=service ↦ dataSubject ↦ consent∧service ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬response∈dom(dataTransferStates)"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·response∈dom(dataAccessResponses)∧dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=service ↦ dataSubject ↦ consent∧service ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·response∈dom(dataAccessResponses)∧dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=responder ↦ dataSubject ↦ consent∧responder ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)"/>
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="response∈callbackDataTransferStates"/>
-        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="response∈dom(dataAccessResponses)∧dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=service ↦ dataSubject ↦ consent∧service ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)"/>
         <org.eventb.core.prPred name="p7" org.eventb.core.predicate="partition(CONSENTS,{ConsentA},{ConsentB})">
             <org.eventb.core.prIdent name="ConsentA" org.eventb.core.type="CONSENTS"/>
             <org.eventb.core.prIdent name="ConsentB" org.eventb.core.type="CONSENTS"/>
@@ -3312,6 +3310,8 @@
         <org.eventb.core.prPred name="p16" org.eventb.core.predicate="DATA_SUBJECTS={DataSubject1}">
             <org.eventb.core.prIdent name="DataSubject1" org.eventb.core.type="DATA_SUBJECTS"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="⊤∧dataAccessResponses∈RESPONSES ⇸ REQUESTS∧(∀x⦂PARTICIPANTS×DATA_SUBJECTS×CONSENTS·x∈dataAccessRequests[{dataAccessResponses(response)}]∧x=responder ↦ dataSubject ↦ consent∧responder ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)⇒x∈dom(dataSubjectConsents)∧dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="responder ↦ dataSubject ↦ consent∈dom(dataSubjectConsents)"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="response∈dom(dataAccessResponses)"/>
         <org.eventb.core.prPred name="p28" org.eventb.core.predicate="consents∈ℙ(CONSENTS)">
             <org.eventb.core.prIdent name="consents" org.eventb.core.type="ℙ(CONSENTS)"/>
@@ -3322,16 +3322,16 @@
             <org.eventb.core.prIdent name="Response1" org.eventb.core.type="RESPONSES"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p42" org.eventb.core.predicate="dataSubjectConsents∈PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="TransferData/grd6/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="CONSENTS,FIELDS">
         <org.eventb.core.lang name="L"/>
