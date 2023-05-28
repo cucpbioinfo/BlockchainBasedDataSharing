@@ -3,12 +3,11 @@
     <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="4" org.eventb.core.identifier="ServiceA"/>
     <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="5" org.eventb.core.identifier="ServiceB"/>
     <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="8" org.eventb.core.identifier="ConsentA"/>
-    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="9" org.eventb.core.identifier="ConsentB"/>
     <org.eventb.core.axiom name=":" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(PARTICIPANTS, {ServiceA}, {ServiceB})"/>
     <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=";" org.eventb.core.identifier="Name"/>
     <org.eventb.core.carrierSet name="?" org.eventb.core.identifier="CONSENTS"/>
     <org.eventb.core.carrierSet name="@" org.eventb.core.identifier="FIELDS"/>
-    <org.eventb.core.axiom name="B" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(CONSENTS, {ConsentA}, {ConsentB})"/>
+    <org.eventb.core.axiom name="B" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(CONSENTS, {ConsentA})"/>
     <org.eventb.core.carrierSet name="C" org.eventb.core.identifier="DATA_SUBJECTS"/>
     <org.eventb.core.axiom name="H" org.eventb.core.label="axm3" org.eventb.core.predicate="partition(FIELDS, {Name}, {BirthDate}, {BirthDefects})"/>
     <org.eventb.core.carrierSet name="J" org.eventb.core.identifier="PARTICIPANTS"/>
@@ -28,10 +27,10 @@
     <org.eventb.core.axiom name="_" org.eventb.core.label="axm10" org.eventb.core.predicate="∅ ∈ CONSENTS ⇸ ℙ1(FIELDS)"/>
     <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="`" org.eventb.core.identifier="initialBalance"/>
     <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="a" org.eventb.core.identifier="Request1"/>
-    <org.eventb.core.axiom name="b" org.eventb.core.label="axm11" org.eventb.core.predicate="∅ ∈ PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⤔ BOOL"/>
-    <org.eventb.core.axiom name="c" org.eventb.core.label="axm12" org.eventb.core.predicate="∅ ∈ REQUESTS ⤔ (PARTICIPANTS × DATA_SUBJECTS × CONSENTS)"/>
+    <org.eventb.core.axiom name="b" org.eventb.core.label="axm11" org.eventb.core.predicate="∅ ∈ PARTICIPANTS × DATA_SUBJECTS × CONSENTS ⇸ BOOL"/>
+    <org.eventb.core.axiom name="c" org.eventb.core.label="axm12" org.eventb.core.predicate="∅ ∈ REQUESTS ⇸ (PARTICIPANTS × DATA_SUBJECTS × CONSENTS)"/>
     <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="d" org.eventb.core.identifier="Response1"/>
     <org.eventb.core.axiom name="e" org.eventb.core.label="axm13" org.eventb.core.predicate="∅ ∈ RESPONSES ⤔ REQUESTS"/>
-    <org.eventb.core.axiom name="f" org.eventb.core.label="axm14" org.eventb.core.predicate="∅ ∈ RESPONSES ⤔ ℙ(DATA_SUBJECTS × FIELDS)"/>
-    <org.eventb.core.axiom name="g" org.eventb.core.label="axm15" org.eventb.core.predicate="∅ ∈ RESPONSES ⤔ BOOL"/>
+    <org.eventb.core.axiom name="f" org.eventb.core.label="axm14" org.eventb.core.predicate="∅ ∈ RESPONSES ⇸ ℙ(DATA_SUBJECTS × FIELDS)"/>
+    <org.eventb.core.axiom name="g" org.eventb.core.label="axm15" org.eventb.core.predicate="∅ ∈ RESPONSES ⇸ BOOL"/>
 </org.eventb.core.contextFile>
